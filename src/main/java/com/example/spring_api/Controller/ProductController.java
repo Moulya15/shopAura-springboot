@@ -92,4 +92,11 @@ public class ProductController {
 
         return ResponseEntity.ok().body(resource);
     }
+
+    //to fetch individual products when you open it
+    @GetMapping("/getProductsByID/{id}")
+    public ResponseEntity<?> getProductsById(@PathVariable Integer id){
+        var checkProduct=prodRepo.findById(id).orElseThrow(()->new RuntimeException("Product not found"));
+        return new ResponseEntity<>(checkProduct,HttpStatus.OK);
+    }
 }
