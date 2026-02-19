@@ -32,7 +32,7 @@ public class UserController {
         if(!checkUser.getPassword().equals(user.getPassword())){
             throw new RuntimeException("Invalid Password");
         }
-        return ResponseEntity.ok(checkUser.getName());
+        return new ResponseEntity<>(checkUser,HttpStatus.OK);
     }
 
     @GetMapping("/GetUsersByMobile/{mobile}")

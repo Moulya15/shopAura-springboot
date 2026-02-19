@@ -15,5 +15,5 @@ public class Cart {
 
     private Integer userId;
     private Integer productId;
-    private Integer Quantity;
+    private Integer quantity;
 }
