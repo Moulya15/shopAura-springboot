@@ -2,6 +2,7 @@ package com.example.spring_api.Controller;
 
 import com.example.spring_api.Entity.User;
 import com.example.spring_api.Repo.UserRepo;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,7 @@ public class UserController {
 
     @Autowired
     public UserRepo userRepo;
+
 
     @PostMapping("/UserRegistration")
     public ResponseEntity<?> userRegistration(@RequestBody User user){

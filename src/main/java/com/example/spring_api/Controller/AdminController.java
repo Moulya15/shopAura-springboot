@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 public class AdminController {
 
     @Autowired
+
     public AdminRepo adminRepo;
 
     //admin will never have a registration page so it should be manually saved in the database
@@ -40,6 +41,7 @@ public class AdminController {
 //        {
 //            var admininfo=adminOptional.get();
 //            if(admininfo.getPassword().equals(password))
+
 //            {
 //                return new ResponseEntity<>("Login Successfull",HttpStatus.OK);
 //            }
