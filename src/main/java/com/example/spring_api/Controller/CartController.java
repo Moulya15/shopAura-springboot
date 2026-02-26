@@ -18,7 +18,9 @@ public class CartController {
 
     @PostMapping("/addCart")
     public ResponseEntity<?> addToCart(@RequestBody Cart cart){
-        Cart existing = cartRepo.findByUserIdAndProductId(cart.getUserId(), cart.getProductId());
+        Cart existing = cartRepo.findByUserIdAndProductId(
+                cart.getUserId(),
+                cart.getProduct().getId());
 
         if(existing != null){
             existing.setQuantity(existing.getQuantity()+ cart.getQuantity());

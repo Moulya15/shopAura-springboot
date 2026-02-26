@@ -1,9 +1,6 @@
 package com.example.spring_api.Entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
@@ -14,6 +11,9 @@ public class Cart {
     private Integer id;
 
     private Integer userId;
-    private Integer productId;
     private Integer quantity;
+
+    @ManyToOne
+    @JoinColumn(name="productId")
+    private ProductEntity product;
 }
