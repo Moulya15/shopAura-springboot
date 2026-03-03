@@ -26,7 +26,8 @@ public class AdminController {
         if(!checkUser.getPassword().equals(user.getPassword())){
             throw new RuntimeException("Invalid Password");
         }
-        return ResponseEntity.ok(checkUser.getName());
+//        return ResponseEntity.ok(checkUser.getName());
+        return new ResponseEntity<>(checkUser,HttpStatus.OK);
     }
 
 //    @GetMapping("/adminlogin/{mobile}/{password}")
