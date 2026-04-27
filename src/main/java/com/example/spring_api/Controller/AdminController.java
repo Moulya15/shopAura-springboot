@@ -51,4 +51,19 @@ public class AdminController {
 //            }
 //        }
 //    }
+
+    @GetMapping("/GetUsersByMobile/{mobile}")
+    public ResponseEntity<?> getUser(@PathVariable String mobile){
+        var checkUser=adminRepo.findByMobile(mobile).orElseThrow(()-> new RuntimeException("User not found"));
+        return new ResponseEntity<>(checkUser,HttpStatus.OK);
+    }
+
+    @PutMapping("/UpdateProfile")
+    public ResponseEntity<?> updateProfile(@RequestBody User user){
+        var checkUser=adminRepo.findByMobile(user.getMobile()).orElseThrow(()-> new RuntimeException("User not found"));
+        checkUser.setName(user.getName());
+        checkUser.setPassword(user.getPassword());
+        adminRepo.save(checkUser);
+        return new ResponseEntity<>("Updated successfully",HttpStatus.OK);
+    }
 }
